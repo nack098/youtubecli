@@ -1,7 +1,14 @@
 # Youtube Command Line Interface
 Youtube Command Line Interface is a hobby project to study rust programming language.
 
-How to use :
+## Requirement :
+This program is relied on the usage of
+1) yt-dlp - For youtube downloading (until Rust version of the same functionality this subject will be un changed)
+2) ffmpeg - For video player
+
+<b>!!Please make sure that both of the requirement are on your system path before using!!</b>
+
+## How to use :
 Search: youtubecli -s [SEARCH TERM]
 URL: youtubecli -u [URL]
 
