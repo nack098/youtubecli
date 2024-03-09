@@ -41,14 +41,14 @@ fn param_error_message<'a>(parameter_type: &'a ParameterType) -> [String; 2] {
     }
 } 
 
-pub fn create_parameter_list(args: Vec<String>) -> Result<InputOptionList, [String; 2]> {
+pub fn create_parameter_list(raw_args: Vec<String>) -> Result<InputOptionList, [String; 2]> {
     let mut parameter_list = Vec::new();
     let mut current_param:ParameterType = ParameterType::Null;
-    for (index, value) in args.iter().enumerate() {
-        if index == 0 {
-            continue;
-        }
-
+    let args :Vec<String> = raw_args[1..].to_vec();
+    if args.len() == 0 {
+        return Err(["ERROR!!: No Arguments Provided".to_string(), "Please check the command with -h or --help\n".to_string()]);
+    }
+    for value in args.iter() {
         match Settings::get_parameter_type(value) {
             Ok(parameter_type) => {
                 if parameter_type != ParameterType::SingleCommand(SingleCommandType::HELP)

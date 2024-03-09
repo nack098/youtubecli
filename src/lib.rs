@@ -6,7 +6,7 @@ pub use crate::youtubecli::{
     types::InputOptionList
 };
 
-pub fn run<'a>(args: &'a Vec<String>) -> Result<(), [String; 2]>{ 
+pub fn run<'a>(args: &'a Vec<String>) -> Result<(), [String; 2]>{
     let inputs = youtubecli::option::parser::create_parameter_list(args.to_vec());
     match inputs {
         Ok(inputs) => {
