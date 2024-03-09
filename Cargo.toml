@@ -1,0 +1,13 @@
+[package]
+name = "youtubecli"
+version = "0.1.0"
+edition = "2021"
+
+[profile.dev]
+panic = 'abort'
+opt-level = 0
+
+[dependencies]
+colored = "2.1.0"
+subprocess = "0.2.9"
+url = "2.5.0"
